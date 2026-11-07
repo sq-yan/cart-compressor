@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup>
+<TargetFramework>netstandard2.1</TargetFramework><LangVersion>latest</LangVersion><Nullable>disable</Nullable><AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+<AssemblyName>CartCompressor</AssemblyName><RootNamespace>CartCompressor</RootNamespace><Version>0.2.1</Version><AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+<DebugType>none</DebugType><Deterministic>true</Deterministic>
+<GameDir Condition="'$(GameDir)' == ''">$(REPO_GAME_DIR)</GameDir><GameManaged>$(GameDir)/REPO_Data/Managed</GameManaged>
+<RepolibPath Condition="'$(RepolibPath)' == ''">$(GameDir)/BepInEx/plugins/Zehs-REPOLib/REPOLib.dll</RepolibPath>
+</PropertyGroup><ItemGroup>
+<PackageReference Include="BepInEx.Core" Version="5.4.21" PrivateAssets="all" ExcludeAssets="runtime"/>
+<PackageReference Include="HarmonyX" Version="2.9.0" PrivateAssets="all" ExcludeAssets="runtime"/>
+<PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3" PrivateAssets="all"/>
+<Reference Include="Assembly-CSharp" Publicize="true"><HintPath>$(GameManaged)/Assembly-CSharp.dll</HintPath><Private>false</Private></Reference>
+<Reference Include="UnityEngine"><HintPath>$(GameManaged)/UnityEngine.dll</HintPath><Private>false</Private></Reference>
+<Reference Include="UnityEngine.CoreModule"><HintPath>$(GameManaged)/UnityEngine.CoreModule.dll</HintPath><Private>false</Private></Reference>
+<Reference Include="UnityEngine.PhysicsModule"><HintPath>$(GameManaged)/UnityEngine.PhysicsModule.dll</HintPath><Private>false</Private></Reference>
+<Reference Include="UnityEngine.InputLegacyModule"><HintPath>$(GameManaged)/UnityEngine.InputLegacyModule.dll</HintPath><Private>false</Private></Reference>
+<Reference Include="UnityEngine.ImageConversionModule"><HintPath>$(GameManaged)/UnityEngine.ImageConversionModule.dll</HintPath><Private>false</Private></Reference>
+<Reference Include="PhotonUnityNetworking"><HintPath>$(GameManaged)/PhotonUnityNetworking.dll</HintPath><Private>false</Private></Reference>
+<Reference Include="PhotonRealtime"><HintPath>$(GameManaged)/PhotonRealtime.dll</HintPath><Private>false</Private></Reference>
+<Reference Include="Photon3Unity3D"><HintPath>$(GameManaged)/Photon3Unity3D.dll</HintPath><Private>false</Private></Reference>
+<Reference Include="REPOLib"><HintPath>$(RepolibPath)</HintPath><Private>false</Private></Reference>
+<EmbeddedResource Include="../assets/cart-crunch.png" LogicalName="CartCompressor.CartCrunch.png"/>
+</ItemGroup>
+<Target Name="CheckGameReferences" BeforeTargets="ResolveAssemblyReferences">
+<Error Condition="!Exists('$(GameManaged)/Assembly-CSharp.dll')" Text="Set GameDir or REPO_GAME_DIR to your R.E.P.O. installation."/>
+<Error Condition="!Exists('$(RepolibPath)')" Text="Set RepolibPath to an installed REPOLib.dll."/>
+</Target></Project>

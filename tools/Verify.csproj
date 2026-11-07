@@ -1,0 +1,1 @@
+<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><OutputType>Exe</OutputType><TargetFramework>net8.0</TargetFramework><GameDir Condition="'$(GameDir)' == ''">$(REPO_GAME_DIR)</GameDir></PropertyGroup><ItemGroup><Reference Include="Mono.Cecil"><HintPath>$(GameDir)/BepInEx/core/Mono.Cecil.dll</HintPath></Reference></ItemGroup></Project>
