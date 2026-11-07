@@ -148,19 +148,6 @@ namespace CartCompressor
         }
     }
 
-    [HarmonyPatch(typeof(ItemAttributes), "ValueDiscount")]
-    internal static class CompressorDiscountPatch
-    {
-        // The game's values here are in thousands. Keep the floor even with discount tools.
-        [HarmonyPrefix]
-        private static bool Prefix(ItemAttributes __instance, ref int __result)
-        {
-            if (CompressorShop.Item == null || __instance.item != CompressorShop.Item) return true;
-            __result = 0;
-            return false;
-        }
-    }
-
     // Stop the local interaction before it broadcasts the toggle RPC; this avoids
     // destroying a fourth box or racing the replicated upgrade event on other peers.
     [HarmonyPatch(typeof(ItemToggle), "ToggleItem")]

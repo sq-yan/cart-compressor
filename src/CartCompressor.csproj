@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk"><PropertyGroup>
 <TargetFramework>netstandard2.1</TargetFramework><LangVersion>latest</LangVersion><Nullable>disable</Nullable><AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-<AssemblyName>CartCompressor</AssemblyName><RootNamespace>CartCompressor</RootNamespace><Version>0.2.1</Version><AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+<AssemblyName>CartCompressor</AssemblyName><RootNamespace>CartCompressor</RootNamespace><Version>0.2.2</Version><AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 <DebugType>none</DebugType><Deterministic>true</Deterministic>
 <GameDir Condition="'$(GameDir)' == ''">$(REPO_GAME_DIR)</GameDir><GameManaged>$(GameDir)/REPO_Data/Managed</GameManaged>
 <RepolibPath Condition="'$(RepolibPath)' == ''">$(GameDir)/BepInEx/plugins/Zehs-REPOLib/REPOLib.dll</RepolibPath>

@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace CartCompressor
 {
-    [BepInPlugin("Local.CartCompressor", "Cart Compressor", "0.2.1")]
+    [BepInPlugin("Local.CartCompressor", "Cart Compressor", "0.2.2")]
     [BepInDependency("REPOLib", "4.3.0")]
     public sealed class Plugin : BaseUnityPlugin
     {
@@ -26,7 +26,7 @@ namespace CartCompressor
             Cargo = new CargoRuntime();
             harmony = new Harmony("Local.CartCompressor");
             harmony.PatchAll(typeof(Plugin).Assembly);
-            Log.Info("Cart Compressor 0.2.1 standalone loaded. Dependency: REPOLib only. Tiers: 76.7% / 70.8% / 65%.");
+            Log.Info("Cart Compressor 0.2.2 standalone loaded. Dependency: REPOLib only. Tiers: 76.7% / 70.8% / 65%.");
         }
         private void Update()
         {

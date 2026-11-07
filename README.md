@@ -13,7 +13,7 @@ A standalone **R.E.P.O.** upgrade that makes cart hauling a personal specializat
 | II | 70.83% | 29.17% |
 | III | 65% | 35% |
 
-Each box costs **at least $15,000**; vanilla purchase scaling may increase the price. Discounts are disabled for this upgrade. A fourth use is blocked without consuming the box.
+Each box has a regular price of **at least $15,000**; vanilla purchase scaling may increase it. The shop robot's successful discount uses the normal game rules and can reduce the price below $15,000. A fourth use is blocked without consuming the box.
 
 - Only the player who eats the box receives the upgrade. Buying it does not upgrade the team.
 - Parked carts retain compression while their owner is alive and connected.
@@ -48,7 +48,7 @@ Requires .NET SDK 8+ and .NET 8 runtime for tests, plus your own game installati
 ./build.ps1 -GameDir 'PATH/TO/REPO' -RepolibPath 'PATH/TO/REPOLib.dll'
 ```
 
-The build runs 23 rule tests, checks six Harmony targets and embedded artwork, and creates a Thunderstore ZIP in `dist/`. It does not install into the game. Pure rule tests can also run without game assemblies using `dotnet test tests/CartCompressor.Tests.csproj -c Release`.
+The build runs 23 rule tests, checks five Harmony targets, discount compatibility and embedded artwork, and creates a Thunderstore ZIP in `dist/`. It does not install into the game. Pure rule tests can also run without game assemblies using `dotnet test tests/CartCompressor.Tests.csproj -c Release`.
 
 ## Credits and license
 

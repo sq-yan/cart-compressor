@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.2
+
+- Fixed shop robot discounts doing nothing to Cart Compressor boxes.
+- Removed the override that blocked the game's ItemAttributes.ValueDiscount method.
+- The $15,000 floor now applies to regular shop pricing; a successful robot discount can reduce that price using vanilla rules.
+
 ## 0.2.1
 
 - First public beta of the standalone Cart Compressor upgrade.

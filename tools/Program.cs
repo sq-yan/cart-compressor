@@ -21,12 +21,15 @@ foreach (var attribute in type.CustomAttributes.Where(x => x.AttributeType.FullN
     var values = attribute.ConstructorArguments;
     if (values.Count < 2 || values[0].Value is not TypeReference owner || values[1].Value is not string name) continue;
     var gameType = game.MainModule.GetType(owner.FullName) ?? throw new Exception("Missing game type " + owner.FullName);
+    if (owner.FullName == "ItemAttributes" && name == "ValueDiscount")
+        throw new Exception("Regression: vanilla robot discount must not be overridden");
     var methods = gameType.Methods.Where(x => x.Name == name).ToArray();
     if (methods.Length != 1) throw new Exception("Missing or ambiguous target: " + owner.FullName + "." + name);
     Console.WriteLine("Patch target OK: " + owner.FullName + "." + name);
     count++;
 }
-if (count != 6) throw new Exception("Expected 6 patches, found " + count);
+if (count != 5) throw new Exception("Expected 5 patches, found " + count);
+Console.WriteLine("Discount compatibility OK: vanilla ValueDiscount is not patched.");
 Console.WriteLine("Dependencies OK: " + string.Join(", ", refs));
 Console.WriteLine("Embedded artwork OK: " + art.Length + " bytes");
 if (args.Length > 2)

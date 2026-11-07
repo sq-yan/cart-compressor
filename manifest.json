@@ -1,6 +1,6 @@
 {
   "name": "CartCompressor",
-  "version_number": "0.2.1",
+  "version_number": "0.2.2",
   "website_url": "https://github.com/sq-yan/cart-compressor",
   "description": "Standalone personal cart compression upgrade. Three tiers and custom cereal artwork. Requires REPOLib only.",
   "dependencies": ["BepInEx-BepInExPack-5.4.2305", "Zehs-REPOLib-4.3.0"]
